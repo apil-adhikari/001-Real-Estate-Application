@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config({ path: "./config.env" });
+dotenv.config({});
 
 import app from "./src/app.js"; // Importing Express application
 
