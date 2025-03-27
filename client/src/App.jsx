@@ -1,19 +1,41 @@
-import Navbar from "./components/navbar/Navbar";
-import "./layout.scss";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Layout from "./routes/layout/Layout";
+// import Navbar from "./components/navbar/Navbar";
+// import "./layout.scss"; // Move to routes/layout folder
 import HomePage from "./routes/homePage/HomePage";
+import ListPage from "./routes/listPage/ListPage";
+import SinglePage from "./routes/singlePage/SinglePage";
 
 function App() {
-  return (
-    <div className="layout">
-      <div className="navbar">
-        <Navbar />
-      </div>
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
 
-      <div className="content">
-        <HomePage />
-      </div>
-    </div>
-  );
+      children: [
+        // HOME PAGE
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+
+        // LIST PAGE
+        {
+          path: "/list",
+          element: <ListPage />,
+        },
+
+        // DISPLAYING SINGLE PAGE (WITH id parameter)
+        {
+          path: "/:id",
+          element: <SinglePage />,
+        },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
