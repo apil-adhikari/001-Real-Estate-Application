@@ -1,0 +1,124 @@
+@use "../../responsive.scss" as *;
+
+nav {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /*nav>a*/
+  a {
+    transition: all 0.4s ease;
+
+    /* For all a tags inside nav in small screen, the display property will be none*/
+    @include smallScreen {
+      display: none; // Initially we make the a tags inside nav to display none.
+    }
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+
+  // Left side
+  .left {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    /*Logo*/
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      img {
+        width: 28px;
+      }
+
+      /*Hide the name in medium screen size */
+      span {
+        @include mediumScreen {
+          display: none;
+        }
+
+        /* Keeping the span tag in small screen*/
+        @include smallScreen {
+          display: initial;
+        }
+      }
+    }
+  }
+
+  /*Right Side */
+  .right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #e5e5e5;
+    height: 100%;
+
+    @include mediumScreen {
+      background-color: transparent;
+    }
+
+    a {
+      padding: 12px 24px;
+      margin: 20px;
+    }
+
+    .register {
+      background-color: rgba(255, 255, 0, 0.582);
+    }
+
+    /*Menu Item*/
+    .menuIcon {
+      display: none; // Initially we dont show hamburger menu
+      z-index: 999; //Set to be at very front
+
+      img {
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+      }
+
+      /*When we reach small screen, we make the hamburger menu to show in the screen*/
+      @include smallScreen {
+        display: inline;
+      }
+    }
+
+    /*Menu item in small screen*/
+    .menu {
+      position: absolute; // We frist set the menu to be in absolute position, outside the view
+      top: 0;
+      right: -50%; // We set the position to -50% from right because we want to hide it initially
+      background-color: black; // Background color is black
+      color: white; //Color is white
+      height: 100vh; // Takes 100vh
+      width: 50%; // Should be 50% of the screen
+      transition: all 1s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+
+      // If the menu gets active class by conditional rendering we se the display to inine
+      &.active {
+        right: 0;
+      }
+
+      // For menu in small screen, we dont want it to be of display none
+      @include smallScreen {
+        a {
+          display: initial;
+        }
+      }
+    }
+  }
+}

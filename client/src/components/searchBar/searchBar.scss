@@ -1,0 +1,111 @@
+// Responsive CSS
+@use "../../responsive.scss" as *;
+
+.searchBar {
+  .type {
+    @include smallScreen {
+      margin-bottom: 5px;
+    }
+
+    button {
+      padding: 16px 36px;
+      border: 1px solid #999;
+      border-bottom: none;
+      background-color: white;
+      cursor: pointer;
+      text-transform: capitalize;
+
+      /*we set bg to black and color to white when there is active class*/
+      &.active {
+        background-color: #000;
+        color: #fff;
+      }
+
+      /*First Button */
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-right: none;
+
+        @include smallScreen {
+          border: 1px solid #999;
+        }
+      }
+
+      /*Second Button */
+      &:last-child {
+        border-top-right-radius: 5px;
+        border-left: none;
+
+        @include smallScreen {
+          border: 1px solid #999;
+        }
+      }
+    }
+  }
+
+  /*Form*/
+  form {
+    border: 1px solid #999;
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    gap: 5px;
+
+    // IN SMALL SCREEN, WE PLACE THE INPUT ELEMENTS OF FORM VERTICALLY
+    @include smallScreen {
+      flex-direction: column;
+      border: none;
+    }
+
+    /*form > input*/
+    input {
+      border: none;
+      padding: 0 10px; // Initial Padding for screens greater than 1366px
+      width: 200px; // Initial width of the input
+
+      // In Large Screen < 1366 px:  Decrease the size of input fild in large screen
+      @include largeScreen {
+        padding: 0px 5px; // We keep padding on left and right of 5px when we are in large devices
+
+        &:nth-child(2), // For second and third children, we will keep 140px width(ie. for min and max price)
+        &:nth-child(3) {
+          width: 140px;
+        }
+      }
+
+      // In MD screen, we dont need width in the input
+      @include mediumScreen {
+        width: auto;
+        flex: 2;
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: auto;
+          flex: 2;
+        }
+      }
+
+      // In small screen, we give some padding to the inputs
+      @include smallScreen {
+        padding: 20px;
+        border: 1px solid #999;
+        border-radius: 5px;
+      }
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      background-color: rgba(255, 255, 0, 0.582);
+      font-size: 24px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include smallScreen {
+        padding: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+    }
+  }
+}

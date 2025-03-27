@@ -1,0 +1,90 @@
+@use "../../responsive.scss" as *;
+
+.homePage {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+
+  /*.homePage > .textContainer*/
+  .textContainer {
+    flex: 3;
+
+    // Give padding to .textContainer> .wrapper
+    .wrapper {
+      padding-right: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+
+      @include mediumScreen {
+        padding: 0;
+      }
+
+      @include smallScreen {
+        justify-content: flex-start;
+      }
+
+      .title {
+        font-size: 64px;
+
+        // IN LARGE SCREEN (LESS THAT 1366PX), DECREASE THE TITLE SIZE TOO
+        @include largeScreen {
+          font-size: 48px;
+        }
+      }
+    }
+
+    .boxes {
+      display: flex;
+      gap: 20px;
+
+      // MAKE BOXES TO DISPLAY NONE IN SMALL SCREEN
+      @include smallScreen {
+        display: none;
+      }
+
+      h1 {
+        font-size: 36px;
+
+        // IN LARGE SCREEN, DECREASE THE FONT SIZE OF H1 OF BOXES
+        @include largeScreen {
+          font-size: 28px;
+        }
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: 300;
+      }
+    }
+  }
+
+  /*.homePage > .imageContainer*/
+  .imageContainer {
+    flex: 2;
+    background-color: #e5e5e5;
+    position: relative; // Parent should be position relative for the image to be in absolute position and come little bit in left side
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+
+    // IN MEDIUM SCREEN DEVICES, DO NOT SHOW THE IMAGE CONTAINER(ie. make image container to display none in md screen)
+    @include mediumScreen {
+      display: none;
+    }
+
+    /*.imageContainer > img*/
+    img {
+      width: 110%;
+      position: absolute;
+      right: 0;
+      border-radius: 16px;
+      box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+
+      @include largeScreen {
+        width: 105%;
+      }
+    }
+  }
+}

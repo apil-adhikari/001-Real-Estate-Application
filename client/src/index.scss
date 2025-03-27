@@ -1,0 +1,17 @@
+// CSS RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // outline: 3px solid orange;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; // Inherit color from parent
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
