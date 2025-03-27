@@ -27,7 +27,8 @@
   }
 
   .content {
-    // height: calc(100vh - 100px);
+    // background-color: rebeccapurple;
+    height: calc(100vh - 100px);
     flex-grow: 1; // we are setting .layout (parent class to be of flex and direction to be of column)
   }
 }
