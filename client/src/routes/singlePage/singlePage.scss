@@ -8,7 +8,9 @@
     .wrapper {
       padding-right: 50px;
       height: 100%;
+      width: 100%;
       padding-bottom: 50px;
+
       // display: flex;
       // flex-direction: column;
       // gap: 30px;
@@ -74,12 +76,166 @@
       }
     }
   }
+
   .features {
     flex: 2;
     background-color: #e5e5e5;
 
-    .wrapper {
+    .features-wrapper {
       padding: 0 20px;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      gap: 10px;
+      overflow: scroll;
+      padding-bottom: 50px;
+
+      .title {
+        font-weight: bold;
+        // margin-bottom: 10px;
+      }
+
+      .feature-icon {
+        font-size: 24px;
+        background-color: rgba(255, 255, 0, 0.3);
+        color: rgb(0, 0, 0);
+      }
+
+      .generalList {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        gap: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        width: 100%;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        .feature {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 5px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+            rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          width: 100%;
+          border-radius: 5px;
+
+          .featureText {
+            span {
+              font-weight: bold;
+            }
+
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .sizeList {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: white;
+        width: 100%;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        .size {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          // background-color: rgba(255, 255, 0, 0.3);
+
+          padding: 5px;
+          border-radius: 5px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+            rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+      }
+
+      // Nearby Places
+      .nearbyPlacesCardContainer {
+        background-color: white;
+        width: 100%;
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        .eachNearbyPlace {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px;
+          width: 50%;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+            rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          border-radius: 5px;
+
+          .nearbyPlaceDescription {
+            span {
+              font-weight: bold;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      // Location
+      .mapContainer {
+        // background-color: rebeccapurple;
+        height: 200px;
+        width: 100%;
+        border-radius: 20px;
+        // box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        //   rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        //   rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+        .map {
+          height: 200px;
+          width: 100%;
+        }
+      }
+
+      // Interactive Buttons
+      .interactionButtons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+          background-color: white;
+          border: 1px solid rgba(255, 255, 0, 0.3);
+          border-radius: 5px;
+          transition: all 0.4 ease;
+
+          &:hover {
+            cursor: pointer;
+            scale: 1.1;
+          }
+        }
+      }
     }
   }
 }
