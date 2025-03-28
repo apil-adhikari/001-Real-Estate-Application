@@ -8,7 +8,8 @@ const SinglePage = () => {
     <div className="singlePage">
       <div className="details">
         <div className="wrapper">
-          <Slider images={singlePostData.images} />
+          {/* Image Slider */}
+          <Slider images={singlePostData.images} title={singlePostData.title} />
 
           <div className="info">
             <div className="top">
