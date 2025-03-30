@@ -77,7 +77,7 @@ const SinglePage = () => {
           <div className="sizeList">
             <div className="size">
               <RiCustomSize className="feature-icon" />
-              <span>80sq feet</span>
+              <span>80 sqft</span>
             </div>
             <div className="size">
               <FaBed className="feature-icon" />
@@ -132,10 +132,10 @@ const SinglePage = () => {
           {/* Interactive Buttons */}
           <div className="interactionButtons">
             <button>
-              <MdChat /> Send Message
+              <MdChat /> <span>Send Message</span>
             </button>
             <button>
-              <MdBookmarkAdd /> Save
+              <MdBookmarkAdd /> <span>Save</span>
             </button>
           </div>
         </div>

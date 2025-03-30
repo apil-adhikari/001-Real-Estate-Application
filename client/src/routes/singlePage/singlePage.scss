@@ -1,20 +1,33 @@
+@use "../../responsive.scss" as *;
+
 .singlePage {
   display: flex;
   height: 100%;
 
+  @include mediumScreen {
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+
   .details {
     flex: 3;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 50px;
+    overflow: scroll;
+
+    @include mediumScreen {
+      flex: none;
+      height: max-content;
+    }
 
     .wrapper {
       padding-right: 50px;
-      height: 100%;
-      width: 100%;
-      padding-bottom: 50px;
 
-      // display: flex;
-      // flex-direction: column;
-      // gap: 30px;
-      overflow: scroll;
+      @include mediumScreen {
+        padding: 20px;
+      }
+
       .info {
         margin-top: 50px;
         .top {
@@ -79,18 +92,23 @@
 
   .features {
     flex: 2;
+    height: 100%;
+    overflow-y: scroll;
     background-color: #e5e5e5;
+
+    @include mediumScreen {
+      flex: none;
+      height: max-content;
+    }
 
     .features-wrapper {
       padding: 0 20px;
-      height: 100%;
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: start;
       gap: 10px;
-      overflow: scroll;
       padding-bottom: 50px;
 
       .title {
@@ -149,6 +167,10 @@
         width: 100%;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
+        @include smallScreen {
+          flex-direction: column;
+        }
+
         .size {
           display: flex;
           justify-content: space-between;
@@ -160,6 +182,14 @@
           border-radius: 5px;
           box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
             rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+          @include largeScreen {
+            font-size: 18px;
+          }
+
+          @include smallScreen {
+            flex-direction: column;
+          }
         }
       }
 
@@ -229,6 +259,13 @@
           border: 1px solid rgba(255, 255, 0, 0.3);
           border-radius: 5px;
           transition: all 0.4 ease;
+
+          @include smallScreen {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 5px 10px;
+          }
 
           &:hover {
             cursor: pointer;

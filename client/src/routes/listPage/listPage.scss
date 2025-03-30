@@ -1,3 +1,5 @@
+@use "../../responsive.scss" as *;
+
 .listPage {
   display: flex;
   height: 100%;
@@ -5,6 +7,10 @@
   .listContainer {
     height: 100%;
     flex: 3;
+
+    @include smallScreen {
+      width: 100%;
+    }
 
     .wrapper {
       height: 100%;
