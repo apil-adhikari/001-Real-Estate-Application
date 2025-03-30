@@ -66,6 +66,58 @@ nav {
       background-color: transparent;
     }
 
+    .user {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      gap: 10px;
+      position: relative;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 0, 0.582);
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+      @include smallScreen {
+        gap: 0px;
+
+        .name {
+          display: none;
+        }
+      }
+
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      // padding: 12px 24px;
+
+      // border-radius: 5px;
+
+      .notification {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        display: block;
+        background-color: red;
+        color: white;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &:hover {
+        .notification {
+          transition: all 0.4 ease-in-out;
+          scale: 0.9;
+        }
+      }
+    }
+
     a {
       padding: 12px 24px;
       margin: 20px;
