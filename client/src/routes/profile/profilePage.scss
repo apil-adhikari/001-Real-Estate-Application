@@ -1,2 +1,99 @@
+@use "../../responsive.scss" as *;
+
 .profilePage {
+  background-color: bisque;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  // overflow: scroll; // This will make all left and right to scroll at the same time
+
+  .leftContainer {
+    // background-color: rgb(167, 60, 60);
+    flex: 3;
+    padding: 10px;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    overflow-y: scroll;
+
+    // --- Start of Common CSS classes ---
+    .containerHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        font-size: 20px;
+      }
+
+      button {
+        background-color: rgba(255, 255, 0, 0.738);
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        border-radius: 5px;
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+            rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+          color: rgba(255, 255, 0, 0.738);
+          background-color: black;
+        }
+      }
+    }
+    // --- End of Common CSS classes ---
+
+    .userDetails {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding-top: 20px;
+
+      span {
+        font-size: 18px;
+      }
+
+      @include mediumScreen {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .nameEmailContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        @include mediumScreen {
+          align-items: center;
+        }
+      }
+
+      // user avatar image
+      .userAvatar {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      // .userName {
+      //   display: flex;
+      // }
+      // .userEmail {
+      //   display: flex;
+      // }
+    }
+  }
+
+  .rightContainer {
+    background-color: white;
+    flex: 2;
+    padding: 10px;
+    border: 1px solid blue;
+  }
 }
