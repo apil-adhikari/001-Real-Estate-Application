@@ -1,3 +1,5 @@
+import Chat from "../../components/chat/Chat";
+import List from "../../components/list/List";
 import "./profilePage.scss";
 
 import React from "react";
@@ -38,7 +40,9 @@ const ProfilePage = () => {
             <h1>My Listings</h1>
             <button>Add Post</button>
           </div>
-          <div className="userAddedPost"></div>
+          <div className="userAddedPost">
+            <List />
+          </div>
         </div>
 
         {/* Saved */}
@@ -46,10 +50,16 @@ const ProfilePage = () => {
           <div className="containerHeader">
             <h1>Saved Posts</h1>
           </div>
-          <div className="userSavedCards"></div>
+          <div className="userSavedCards">
+            <List />
+          </div>
         </div>
       </div>
-      <div className="rightContainer">right</div>
+
+      {/* Right Side  */}
+      <div className="rightContainer">
+        <Chat />
+      </div>
     </div>
   );
 };
