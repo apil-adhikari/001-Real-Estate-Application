@@ -127,6 +127,9 @@ export const login = async (req, res) => {
 
     res.cookie("token", token, cookieOptions).json({
       status: "success",
+      data: {
+        message: "Logged in successfully!",
+      },
     });
   } catch (error) {
     console.log("Error in login controller: ", error);
@@ -139,5 +142,25 @@ export const login = async (req, res) => {
 
 /**Logout */
 export const logout = (req, res) => {
-  // db operations
+  try {
+    res
+      .clearCookie("token") // We can either clear cookie or set new cookie with same name
+      // .cookie("token", "token-expired", {
+      //   expires: new Date(Date.now() + 10 * 1000),
+      //   httpOnly: true,
+      // })
+      .status(200)
+      .json({
+        status: "success",
+        data: {
+          message: "Logged out successfully",
+        },
+      });
+  } catch (error) {
+    console.log("Error in logout controller: ", error);
+    res.status(500).json({
+      status: "error",
+      message: "Something went wrong!",
+    });
+  }
 };
