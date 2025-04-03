@@ -1,0 +1,86 @@
+@use "../../responsive.scss" as *;
+
+.register {
+  height: max-content;
+  width: 100%;
+  // background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  // align-items: center;
+
+  .formContainer {
+    // height: 50%;
+    width: 50%;
+    // background-color: red;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    @include mediumScreen {
+      width: 100%;
+    }
+
+    form {
+      // height: 100%;
+      // width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+
+      .labelContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 10px;
+        border-radius: 5px;
+
+        border: 1px solid gray;
+
+        label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba(234, 230, 230, 0.292);
+        }
+        .icon {
+          // font-size: 36px;
+          // border-radius: 5px 0 0 5px;
+          padding: 5px;
+          font-size: 24px;
+          // outline: auto;
+        }
+
+        input {
+          border-radius: 0 5px 5px 0;
+          width: 100%;
+          padding: 10px 20px;
+          font-family: Inter;
+          font-size: 16px;
+
+          border: none;
+          outline: transparent;
+
+          border-left: none;
+        }
+      }
+    }
+
+    button {
+      font-family: monospace;
+      background-color: rgba(255, 255, 0, 0.582);
+      border-radius: 5px;
+      padding: 10px 20px;
+      border: none;
+      outline: transparent;
+    }
+
+    a {
+      color: gray;
+      text-decoration: underline;
+    }
+  }
+}

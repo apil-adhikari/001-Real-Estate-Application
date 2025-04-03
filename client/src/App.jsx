@@ -7,6 +7,8 @@ import HomePage from "./routes/homePage/HomePage";
 import ListPage from "./routes/listPage/ListPage";
 import SinglePage from "./routes/singlePage/SinglePage";
 import ProfilePage from "./routes/profile/ProfilePage";
+import Login from "./routes/login/Login";
+import Register from "./routes/register/Register";
 
 function App() {
   const router = createBrowserRouter([
@@ -37,6 +39,18 @@ function App() {
         {
           path: "/profile",
           element: <ProfilePage />,
+        },
+
+        // Login
+        {
+          path: "/login",
+          element: <Login />,
+        },
+
+        // Register
+        {
+          path: "/register",
+          element: <Register />,
         },
       ],
     },
