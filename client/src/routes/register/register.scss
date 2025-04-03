@@ -15,7 +15,8 @@
     // background-color: red;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
     @include mediumScreen {
       width: 100%;
@@ -75,7 +76,13 @@
       border-radius: 5px;
       padding: 10px 20px;
       border: none;
-      outline: transparent;
+      // outline: transparent;
+      cursor: pointer;
+      transition: all 0.4s ease;
+
+      &:hover {
+        scale: 1.01;
+      }
     }
 
     a {
