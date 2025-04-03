@@ -11,18 +11,7 @@ const Login = () => {
       <div className="formContainer">
         <form>
           <h1>Login into your Account</h1>
-          <div className="labelContainer">
-            <label htmlFor="username">
-              <IoPerson className="icon" />
-            </label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-              required
-            />
-          </div>
+
           <div className="labelContainer">
             <label htmlFor="email">
               <IoMail className="icon" />

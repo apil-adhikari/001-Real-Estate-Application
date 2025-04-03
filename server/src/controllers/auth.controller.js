@@ -18,6 +18,20 @@ export const register = async (req, res) => {
       });
     }
 
+    // Check for unique username
+    const userNameIsUsed = await prisma.user.findUnique({
+      where: { username },
+    });
+    if (userNameIsUsed) {
+      return res.status(400).json({
+        status: "fail",
+        data: {
+          message:
+            "That username is already taken! Please use another username.",
+        },
+      });
+    }
+
     // Check if the user already exists with that  email address
     const userExists = await prisma.user.findUnique({
       where: { email: email },
