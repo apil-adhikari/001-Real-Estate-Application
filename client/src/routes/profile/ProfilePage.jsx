@@ -1,10 +1,28 @@
+import { useNavigate } from "react-router-dom";
 import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
+import apiRequest from "../../lib/apiRequest";
 import "./profilePage.scss";
 
 import React from "react";
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
+
+  // FUNCTION TO HANDLE LOGOUT
+  const handleLogout = async () => {
+    try {
+      const res = await apiRequest.post("/auth/logout");
+      // CLEAR LOCAL STORAGE
+      localStorage.removeItem("user");
+
+      // AND NAVIGATE TO HOMEPAGE
+      navigate("/");
+    } catch (error) {
+      console.log("Error in logout(profile page): ", error);
+    }
+  };
+
   return (
     <div className="profilePage">
       <div className="leftContainer">
@@ -23,6 +41,13 @@ const ProfilePage = () => {
               </div>
               <div className="userEmail">
                 <span>Email: </span>jennymartin@gmail.com
+              </div>
+
+              {/* LOGOUT BUTTON */}
+              <div>
+                <button className="logout" onClick={handleLogout}>
+                  Logout
+                </button>
               </div>
             </div>
 
