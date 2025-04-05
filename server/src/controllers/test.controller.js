@@ -2,39 +2,18 @@ import jwt from "jsonwebtoken";
 
 export const shouldBeLoggedIn = async (req, res) => {
   try {
-    // To check if the user is logged in or, we should verify the token in cookie
-    const token = req.cookies.token;
+    console.log("In shouldBeLoggedIn controller, userID: ", req.userId);
 
-    if (!token) {
-      return res.status(401).json({
-        status: "fail",
-        data: {
-          message: "Not authenticated!",
-        },
-      });
-    }
-
-    // 2) If we have token, we need to verify the token
-    jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
-      if (err) {
-        return res.status(403).json({
-          status: "fail",
-          data: {
-            message: "Not authenticated! Token is not valid!",
-          },
-        });
-      }
-
-      res.status(200).json({
-        status: "success",
-        data: {
-          message: "You are authenticated",
-        },
-      });
+    // Token verification is done by express middleware
+    res.status(200).json({
+      status: "success",
+      data: {
+        message: "You are authenticated",
+      },
     });
   } catch (error) {
     console.log("Error in shouldBeLoggedIn controller", error);
-    res.status(500).josn({
+    res.status(500).json({
       status: "fail",
       message: "Internal Server Error!",
     });
@@ -75,14 +54,14 @@ export const shouldBeAdmin = async (req, res) => {
           },
         });
       }
+    });
 
-      // 3) send response
-      res.status(200).json({
-        status: "success",
-        data: {
-          message: "You are authenticated as admin.",
-        },
-      });
+    // 3) send response
+    res.status(200).json({
+      status: "success",
+      data: {
+        message: "You are authenticated as admin.",
+      },
     });
   } catch (error) {
     console.log("test");

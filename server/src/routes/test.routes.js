@@ -3,6 +3,7 @@ import {
   shouldBeAdmin,
   shouldBeLoggedIn,
 } from "../controllers/test.controller.js";
+import { verifyToken } from "../middlewares/verifyToken.js";
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ const router = express.Router();
  * 2) user should be an admin
  */
 
-router.get("/should-be-logged-in", shouldBeLoggedIn);
+router.get("/should-be-logged-in", verifyToken, shouldBeLoggedIn);
 router.get("/should-be-admin", shouldBeAdmin);
 
 router.post;
