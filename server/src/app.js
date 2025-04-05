@@ -7,6 +7,7 @@ dotenv.config({ path: "./config.env" });
 import postRouter from "./routes/post.routes.js";
 import userRouter from "./routes/user.routes.js";
 import authRouter from "./routes/auth.routes.js";
+import testRouter from "./routes/test.routes.js";
 
 const app = express();
 
@@ -27,5 +28,8 @@ app.use(
 app.use("/api/v1/posts", postRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);
+
+// Test route
+app.use("/api/v1/test", testRouter);
 
 export default app;

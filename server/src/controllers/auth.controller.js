@@ -85,7 +85,8 @@ export const login = async (req, res) => {
   try {
     // Take all required inputs and destructure
     const { email, password } = req.body;
-    console.log("Authorization Header: ", req.headers.authorization);
+    // console.log(req.body);
+    // console.log("Authorization Header: ", req.headers.authorization);
 
     // Check if requied fields are filled
     if (!email || !password) {
@@ -129,7 +130,7 @@ export const login = async (req, res) => {
     // res.setHeader("Set-Cookie", "text=" + "myvalue"); // Manually sending cookies header
 
     const token = jwt.sign(
-      { id: existingUser.id },
+      { id: existingUser.id, isAdmin: true },
       process.env.JWT_SECRET_KEY,
       { expiresIn: process.env.JWT_SECRET_EXPIRES_IN }
     );
@@ -144,13 +145,16 @@ export const login = async (req, res) => {
     // We do not send the password as response(even it is hashed)
     const { password: userPassword, ...userInfo } = existingUser;
 
-    res.cookie("token", token, cookieOptions).json({
-      status: "success",
-      data: {
-        message: "Logged in successfully!",
-        user: userInfo, //
-      },
-    });
+    res
+      .cookie("token", token, cookieOptions)
+      .status(200)
+      .json({
+        status: "success",
+        data: {
+          message: "Logged in successfully!",
+          user: userInfo, //
+        },
+      });
   } catch (error) {
     console.log("Error in login controller: ", error);
     res.status(500).json({
