@@ -61,12 +61,14 @@ export const register = async (req, res) => {
     });
     console.log(user);
 
+    const { password: userPassword, ...userInfo } = user; // We seprate the password and other fields, we dont send password in response
+
     // Send response
     res.status(201).json({
       status: "success",
       data: {
         message: "User created successfully",
-        user,
+        user: userInfo, // Sending data other than passwords
       },
     });
   } catch (error) {
@@ -139,10 +141,14 @@ export const login = async (req, res) => {
       secure: true, //Ensure cookie are sent over HTTPS
     };
 
+    // We do not send the password as response(even it is hashed)
+    const { password: userPassword, ...userInfo } = existingUser;
+
     res.cookie("token", token, cookieOptions).json({
       status: "success",
       data: {
         message: "Logged in successfully!",
+        user: userInfo, //
       },
     });
   } catch (error) {
