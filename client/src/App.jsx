@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Layout from "./routes/layout/Layout";
+import { Layout, RequireAuth } from "./routes/layout/Layout";
 // import Navbar from "./components/navbar/Navbar";
 // import "./layout.scss"; // Move to routes/layout folder
 import HomePage from "./routes/homePage/HomePage";
@@ -35,12 +35,6 @@ function App() {
           element: <SinglePage />,
         },
 
-        // PROFILE ROUTE
-        {
-          path: "/profile",
-          element: <ProfilePage />,
-        },
-
         // Login
         {
           path: "/login",
@@ -51,6 +45,17 @@ function App() {
         {
           path: "/register",
           element: <Register />,
+        },
+      ],
+    },
+    {
+      path: "/",
+      element: <RequireAuth />,
+      children: [
+        {
+          // PROFILE ROUTE
+          path: "/profile",
+          element: <ProfilePage />,
         },
       ],
     },

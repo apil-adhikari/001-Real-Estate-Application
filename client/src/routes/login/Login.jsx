@@ -5,12 +5,15 @@ import { FaUser } from "react-icons/fa";
 import { RiTextBlock } from "react-icons/ri";
 import { IoLockClosed, IoLockOpen, IoMail, IoPerson } from "react-icons/io5";
 // import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import apiRequest from "../../lib/apiRequest";
+import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false); // Initally setting isLoading to false
+
+  const { updateUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -29,7 +32,9 @@ const Login = () => {
       });
 
       // SETTING LOCAL STORAGE (local storage sotres the data in string format, so we need to stringify the data)
-      localStorage.setItem("user", JSON.stringify(res.data));
+      // localStorage.setItem("user", JSON.stringify(res.data));
+      // We set local storage using our context api
+      updateUser(res.data);
 
       navigate("/");
     } catch (error) {

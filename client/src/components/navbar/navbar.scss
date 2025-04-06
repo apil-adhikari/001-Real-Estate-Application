@@ -2,9 +2,15 @@
 
 nav {
   height: 100px;
+  // width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 50px;
+
+  @include mediumScreen {
+    padding: 20px;
+  }
 
   /*nav>a*/
   a {
@@ -24,8 +30,9 @@ nav {
   .left {
     flex: 3;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 50px;
+    gap: 30px;
 
     /*Logo*/
     .logo {
@@ -61,6 +68,8 @@ nav {
     justify-content: flex-end;
     background-color: #e5e5e5;
     height: 100%;
+    // width: 100%;
+    // gap: 20px;
 
     @include mediumScreen {
       background-color: transparent;
@@ -120,11 +129,21 @@ nav {
 
     a {
       padding: 12px 24px;
-      margin: 20px;
+      margin-right: 20px;
+
+      @include smallScreen {
+        display: none;
+      }
     }
 
+    .login {
+      color: rgb(255, 255, 0);
+      background-color: rgba(0, 0, 0, 0.463);
+      width: 30%;
+    }
     .register {
-      background-color: rgba(255, 255, 0, 0.582);
+      background-color: rgb(255, 255, 0);
+      width: 30%;
     }
 
     /*Menu Item*/

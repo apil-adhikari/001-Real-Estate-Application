@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-around;
   height: 100%;
+  gap: 50px;
 
   /*.homePage > .textContainer*/
   .textContainer {
@@ -11,11 +12,12 @@
 
     // Give padding to .textContainer> .wrapper
     .wrapper {
-      padding-right: 100px;
+      // padding-right: 100px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       height: 100%;
+      gap: 30px;
 
       @include mediumScreen {
         padding: 0;

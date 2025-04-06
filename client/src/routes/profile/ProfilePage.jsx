@@ -4,17 +4,21 @@ import List from "../../components/list/List";
 import apiRequest from "../../lib/apiRequest";
 import "./profilePage.scss";
 
-import React from "react";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
+  const { currentUser, updateUser } = useContext(AuthContext);
 
   // FUNCTION TO HANDLE LOGOUT
   const handleLogout = async () => {
     try {
-      const res = await apiRequest.post("/auth/logout");
+      await apiRequest.post("/auth/logout");
       // CLEAR LOCAL STORAGE
-      localStorage.removeItem("user");
+      // localStorage.removeItem("user");
+      // We clear the user data using context api
+      updateUser(null);
 
       // AND NAVIGATE TO HOMEPAGE
       navigate("/");
@@ -36,11 +40,12 @@ const ProfilePage = () => {
           <div className="userDetails">
             <div className="nameEmailContainer">
               <div className="userName">
-                <sapn>Name: </sapn>
-                Jenny Martin
+                <span>Name: </span>
+                {currentUser.data.user.username}
               </div>
               <div className="userEmail">
-                <span>Email: </span>jennymartin@gmail.com
+                <span>Email: </span>
+                {currentUser.data.user.email}
               </div>
 
               {/* LOGOUT BUTTON */}
@@ -53,8 +58,8 @@ const ProfilePage = () => {
 
             <img
               className="userAvatar"
-              src="https://images.pexels.com/photos/3533228/pexels-photo-3533228.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="Profile Picture"
+              src={currentUser.data.user.avatar || "/defaultImage.png"}
+              alt={currentUser.data.user.username}
             />
           </div>
         </div>
