@@ -1,0 +1,156 @@
+.profileUpdatePage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f5fc;
+
+  .container {
+    height: max-content;
+    width: 570px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+
+    h1 {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 {
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .topSection {
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+
+      .info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+
+        button {
+          font-size: 14px;
+          padding: 10px 15px;
+          border-radius: 10px;
+          border: transparent;
+          font-weight: 300;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+
+          &:hover {
+            font-weight: bold;
+          }
+        }
+
+        .saveChanges {
+          background-color: #684af4;
+          color: white;
+        }
+      }
+    }
+
+    .bottomSection {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .subTitle {
+        .icon {
+          color: #684af4;
+        }
+      }
+
+      img {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: transparent;
+        font-weight: 300;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        &:hover {
+          font-weight: bold;
+        }
+      }
+
+      .profileSection {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .profileSectionDetails {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .changeProfileImage {
+            background-color: #684af4;
+            color: white;
+          }
+
+          .deleteProfileImage {
+            color: rgb(255, 0, 0);
+          }
+        }
+      }
+
+      .personalInfoSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+
+        input {
+          border: 1px solid #684af4;
+          padding: 10px 20px;
+          border-radius: 10px;
+        }
+
+        .personalDetails {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          flex: 50%;
+
+          .eachDetail {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}
