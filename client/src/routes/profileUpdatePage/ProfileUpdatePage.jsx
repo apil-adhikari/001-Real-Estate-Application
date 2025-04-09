@@ -14,7 +14,10 @@ const ProfileUpdatePage = () => {
         <div className="topSection">
           <div className="info">
             <h1>Your Profile</h1>
-            <span>Last edit on 12 Feburary 2025</span>
+            <span>
+              Last edit on{" "}
+              <b>{currentUser.data.user.updatedAt.split("T")[0]}</b>
+            </span>
           </div>
           <div className="actions">
             <button className="discardChanges">Discard</button>
