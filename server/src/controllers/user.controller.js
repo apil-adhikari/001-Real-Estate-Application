@@ -6,9 +6,32 @@ import prisma from "../../lib/prisma.js";
 export const getUser = async (req, res) => {
   try {
     console.log("---In getUser() controller---");
-    const document = await prisma.user.findUnique(req.params.id);
-    console.log(document);
+
+    // Get the id of the user to find from request parameter
+    const id = req.params.id;
+    console.log(id);
+    // Check if the user exists
+    const user = await prisma.user.findUnique({
+      where: { id },
+    });
+
+    if (!user) {
+      return res.status(400).json({
+        status: "fail",
+        message: "No user found with that id!",
+      });
+    }
+    console.log(user);
+
+    // Send response
+    res.status(200).json({
+      status: "success",
+      data: {
+        user,
+      },
+    });
   } catch (error) {
+    console.log("Error in getUser() controller: ", error);
     return res.status(500).json({
       status: "error",
       message: "Internal Server Error!",
@@ -30,6 +53,7 @@ export const getAllUsers = async (req, res) => {
       },
     });
   } catch (error) {
+    console.log("Error in getAllUsers() controller: ", error);
     return res.status(500).json({
       status: "error",
       message: "Internal Server Error!",

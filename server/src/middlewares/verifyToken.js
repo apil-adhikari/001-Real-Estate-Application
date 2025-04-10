@@ -1,3 +1,4 @@
+import { promisify } from "util";
 import jwt from "jsonwebtoken";
 
 export const verifyToken = async (req, res, next) => {
@@ -14,7 +15,7 @@ export const verifyToken = async (req, res, next) => {
     }
 
     // Verify the obtained token using JWT and store in a variable
-    const decoded = jwt.verify(
+    const decoded = await promisify(jwt.verify)(
       token,
       process.env.JWT_SECRET_KEY,
       async (err, payload) => {
